@@ -1,0 +1,10 @@
+{
+    "key1": {
+        "prop1-2": "fghij",
+        "n": 67890,
+        "prop1-1": null
+    },
+    "key2": {
+        "prop2": "Hello world!"
+    }
+}

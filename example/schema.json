@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Example schema",
+
+    "type": "object",
+    "properties": {
+        "key1" : {
+            "type": "object",
+            "properties": {
+                "prop1": {
+                    "type": "string",
+                    "env": "prop1",
+                    "arg": "prop1"
+                },
+                "prop1-1": {
+                    "type": "string"
+                },
+                "n": {
+                    "type": "number",
+                    "env": "n",
+                    "arg": "n"
+                }
+            },
+            "required": ["prop1"]
+        },
+        "key2" : {
+            "type": "object",
+            "properties": {
+                "prop2": {
+                    "type": "string",
+                    "arg": "prop2"
+                }
+            }
+        },
+        "key3" : {
+            "type": "string",
+            "arg": "key3",
+            "default": "xyz"
+        }
+    }
+}

@@ -1,10 +1,10 @@
 {
     "key1": {
-        "prop1-2": "fghij",
-        "n": 67890,
-        "prop1-1": null
+        "prop11": "fghij",
+        "prop12": null,
+        "n": 67890
     },
     "key2": {
-        "prop2": "Hello world!"
+        "prop21": "Hello world!"
     }
 }

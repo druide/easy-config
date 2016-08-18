@@ -104,19 +104,20 @@ function EasyConfig (schema) {
     this.schema = schema
   }
   this.validate = ajv.compile(this.schema)
-  this.valid = true
-  this.config = {}
+  this.load()
 }
 
 /**
  * Load config.
  * @param  {Object|Array|String} config JSON, filename, or array of JSON's or filenames
- * @param  {Boolean} [append] When true, extend already loaded config with new one.
  * @return {Object} resulting plain config object
  */
-EasyConfig.prototype.load = function (config, append) {
-  if (!append) this.config = {}
-  if (typeof config === 'string') {
+EasyConfig.prototype.load = function (config) {
+  var _firstTime = false
+  if (!this.config) {
+    this.config = {}
+    _firstTime = true
+  } else if (typeof config === 'string') {
     _.mergeWith(this.config, require(config), customizer)
   } else if (config instanceof Array) {
     var self = this
@@ -129,16 +130,8 @@ EasyConfig.prototype.load = function (config, append) {
   }
   clean(this.config)
   walk(this.schema, this.config)
-  this.valid = this.validate(this.config)
-  return this.valid ? this.config : new Error(this.getError())
-}
-
-/**
- * Is loaded config valid
- * @return {Boolean}
- */
-EasyConfig.prototype.isValid = function () {
-  return this.valid
+  if (!this.validate(this.config) && !_firstTime) throw new Error(this.getError())
+  return this.config
 }
 
 /**

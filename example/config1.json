@@ -1,10 +1,10 @@
 {
     "key1": {
-        "prop1": "abcde",
-        "prop1-1": "qwerty",
+        "prop11": "abcde",
+        "prop12": "qwerty",
         "n": 12345
     },
     "key2": {
-        "prop2": "world"
+        "prop21": "world"
     }
 }
